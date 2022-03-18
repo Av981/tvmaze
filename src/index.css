@@ -1,0 +1,36 @@
+html {
+  font-size: 90.5%;
+}
+
+body {
+  min-height: 98vh;
+  max-width: 98vw;
+  background-image: linear-gradient(
+    90deg,
+    tomato,
+    orange,
+    rgba(248, 220, 7, 0.671)
+  );
+  overflow: auto;
+  font-family: "Raleway", sans-serif;
+}
+
+#main-heading {
+  text-align: center;
+  color: cornsilk;
+  padding-top: 1rem;
+  border-bottom: 1px solid cornflowerblue;
+}
+h1 span {
+  color: brown;
+}
+
+.card {
+  cursor: pointer;
+}
+.card:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.001);
+  z-index: 100;
+  text-decoration: none;
+}
