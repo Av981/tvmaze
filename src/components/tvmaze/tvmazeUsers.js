@@ -10,13 +10,15 @@ const TvmazeUsers = ({ users }) => {
       <h1 id="main-heading">
         <span>TV</span>MAZE
       </h1>
-      <div className="container-fluid mt-5">
+     < div className="container-fluid mt-5">
         <div className="row text-center">
           {users.map((curElem) => {
             const { score, show } = curElem;
             return (
               <div className="col-10 col-md-4 mt-5" key={show.id}>
+                <Link to={`/movie/${show.id}`} >
                 <div className="card p-2">
+                
                   <div className="d-flex align-items-center">
                     <div className="image">
                       <img
@@ -28,7 +30,7 @@ const TvmazeUsers = ({ users }) => {
                     </div>
                     <div className="ml-3 w-100">
                       <h4 className="mb-0 mt-0 textLeft">
-                     <Link to="/movie/?`${show.id}`">{show.name} <FcLike /> </Link>
+                     {show.name} <FcLike />
                       </h4>
                       <div className="p-2 mt-2 m-2 bg-primary d-flex justify-content-between rounded text-white stats">
                         <div className="d-flex flex-column">
@@ -46,7 +48,8 @@ const TvmazeUsers = ({ users }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              
+              </Link></div>
             );
           })}
         </div>

@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Loading from "./tvmaze/loading";
 import TvmazeUsers from "./tvmaze/tvmazeUsers";
 import TvmazeMovie from "./tvmazemovie";
+import ErrorPage from "./ErrorPage";
 
 const UseEffectAPI = () => {
   const [users, setUsers] = useState([]);
@@ -31,7 +32,8 @@ const UseEffectAPI = () => {
     <>
     <Switch>
       <Route exact path='/'><TvmazeUsers users={users}/></Route>
-      <Route path='/movie'><TvmazeMovie users={users}/> </Route>
+      <Route path='/movie/:showid'><TvmazeMovie users={users}/> </Route>
+      <Route > <ErrorPage/> </Route>
     </Switch>
     </>
   );
