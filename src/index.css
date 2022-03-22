@@ -13,6 +13,7 @@ body {
   );
   overflow: auto;
   font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
 }
 
 #main-heading {
@@ -27,10 +28,11 @@ h1 span {
 
 .card {
   cursor: pointer;
+  box-sizing: border-box;
 }
 .card:hover {
   transition: all 0.1s ease-in-out;
-  transform: scale(1.001);
+  transform: scale(1.005);
   z-index: 100;
   text-decoration: none;
 }

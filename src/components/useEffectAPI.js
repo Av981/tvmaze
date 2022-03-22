@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from 'react-router-dom';
-import Loading from "./tvmaze/loading";
-import TvmazeUsers from "./tvmaze/tvmazeUsers";
-import TvmazeMovie from "./tvmazemovie";
-import ErrorPage from "./ErrorPage";
+import CatDisplay from "./categoriesList/catDisplay";
+import Loading from "./categoriesList/loading";
 
 const UseEffectAPI = () => {
-  const [users, setUsers] = useState([]);
+  const [catlist, setCatList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getUsers = async () => {
     try {
-      const response = await fetch("https://api.tvmaze.com/search/shows?q=all");
+      const response = await fetch(
+        "https://2zntp5nxb7.execute-api.ap-south-1.amazonaws.com/cat/category",
+        { mode: "cors" }
+      );
       setLoading(false);
-      setUsers(await response.json());
+      setCatList(await response.json());
     } catch (error) {
       setLoading(false);
       console.log("my error is " + error);
@@ -30,11 +30,7 @@ const UseEffectAPI = () => {
 
   return (
     <>
-    <Switch>
-      <Route exact path='/'><TvmazeUsers users={users}/></Route>
-      <Route path='/movie/:showid'><TvmazeMovie users={users}/> </Route>
-      <Route > <ErrorPage/> </Route>
-    </Switch>
+      <CatDisplay catlist={catlist} />
     </>
   );
 };
